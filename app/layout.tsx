@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
-import ConvexClerkProvider from "@/providers/ConvexClerkProvider";
+import ConvexClerkProvider from "../providers/ConvexClerkProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Podcastr",
-  description: "Generate your podcast using AI",
+  description: "Generate your podcasts using AI",
   icons: {
-    icon: "/icons/logo.svg",
-  },
+    icon: '/icons/logo.svg'
+  }
 };
 
 export default function RootLayout({
@@ -28,13 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <ConvexClerkProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+      <html lang="en">
+          <body className={`${manrope.className}`}>
+              {children}
+          </body>
+      </html>
     </ConvexClerkProvider>
   );
 }
